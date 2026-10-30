@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Grammar Magic: Nouns & Pronouns (English & తెలుగు)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka for playful English, Noto Sans Telugu for clear Telugu -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Fredoka', 'Noto Sans Telugu', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #fef3c7 50%, #fce7f3 100%);
+            min-height: 100vh;
+        }
+        .telugu-text {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            line-height: 1.6;
+        }
+        .card-bounce {
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+        }
+        .card-bounce:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.12);
+        }
+        .tab-active {
+            transform: scale(1.04);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+        }
+        .hl-noun {
+            background-color: #fef08a;
+            color: #b45309;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            border-bottom: 3px solid #f59e0b;
+            display: inline-block;
+        }
+        .hl-pronoun {
+            background-color: #d8b4fe;
+            color: #6b21a8;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            border-bottom: 3px solid #9333ea;
+            display: inline-block;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fef3c7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 pb-16">
+
+    <!-- Top Decorative Banner -->
+    <header class="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white shadow-xl rounded-b-[2.5rem] mb-8">
+        <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-semibold mb-3 border border-white/30">
+                <span>🌟 Interactive Bilingual Kids Grammar</span>
+                <span>•</span>
+                <span class="telugu-text">పిల్లల కోసం ఇంగ్లీష్ వ్యాకరణం</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-bold tracking-tight mb-3 drop-shadow-md">
+                Nouns & Pronouns Adventure! 🎈
+            </h1>
+            <p class="text-lg sm:text-2xl text-yellow-200 font-semibold telugu-text drop-shadow">
+                నామవాచకము (Nouns) మరియు సర్వనామము (Pronouns) - రకాలు & 40 సులభమైన ఉదాహరణలు
+            </p>
+        </div>
+        <!-- Decorative Floating Shapes -->
+        <div class="absolute -top-10 -left-10 w-36 h-36 bg-yellow-300/20 rounded-full blur-xl"></div>
+        <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-pink-300/20 rounded-full blur-xl"></div>
+    </header>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="max-w-6xl mx-auto px-4 mb-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            <button onclick="switchTab('nouns-theory')" id="tab-nouns-theory" class="nav-btn tab-active flex flex-col items-center justify-center p-3.5 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-white font-bold shadow-md transition-all">
+                <span class="text-2xl mb-1">🏰</span>
+                <span class="text-sm sm:text-base">1. Nouns & Types</span>
+                <span class="text-xs telugu-text opacity-95">నామవాచకము రకాలు</span>
+            </button>
+
+            <button onclick="switchTab('nouns-examples')" id="tab-nouns-examples" class="nav-btn flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white hover:bg-amber-50 text-amber-700 border-2 border-amber-300 font-bold shadow-sm transition-all">
+                <span class="text-2xl mb-1">🍎</span>
+                <span class="text-sm sm:text-base">2. 20 Noun Examples</span>
+                <span class="text-xs telugu-text opacity-90">20 నామవాచక ఉదాహరణలు</span>
+            </button>
+
+            <button onclick="switchTab('pronouns-theory')" id="tab-pronouns-theory" class="nav-btn flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white hover:bg-purple-50 text-purple-700 border-2 border-purple-300 font-bold shadow-sm transition-all">
+                <span class="text-2xl mb-1">🦸‍♂️</span>
+                <span class="text-sm sm:text-base">3. Pronouns & Types</span>
+                <span class="text-xs telugu-text opacity-90">సర్వనామము రకాలు</span>
+            </button>
+
+            <button onclick="switchTab('pronouns-examples')" id="tab-pronouns-examples" class="nav-btn flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white hover:bg-pink-50 text-pink-700 border-2 border-pink-300 font-bold shadow-sm transition-all">
+                <span class="text-2xl mb-1">💬</span>
+                <span class="text-sm sm:text-base">4. 20 Pronoun Examples</span>
+                <span class="text-xs telugu-text opacity-90">20 సర్వనామ ఉదాహరణలు</span>
+            </button>
+
+            <button onclick="switchTab('quiz-zone')" id="tab-quiz-zone" class="nav-btn col-span-2 sm:col-span-1 flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white hover:bg-emerald-50 text-emerald-700 border-2 border-emerald-300 font-bold shadow-sm transition-all">
+                <span class="text-2xl mb-1">🏆</span>
+                <span class="text-sm sm:text-base">5. Fun Kids Quiz</span>
+                <span class="text-xs telugu-text opacity-90">సరదా క్విజ్ గేమ్</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- ================= SECTION 1: NOUNS & THEIR PARTS ================= -->
+        <section id="section-nouns-theory" class="space-y-8">
+            <!-- Main Definition Hero Card -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border-4 border-amber-400 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-amber-100 border-4 border-amber-300 flex items-center justify-center text-5xl sm:text-6xl shrink-0 shadow-inner">
+                        🏷️
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-bold mb-2">
+                            Part of Speech #1 • భాషాభాగము #1
+                        </div>
+                        <h2 class="text-2xl sm:text-4xl font-bold text-amber-600 mb-2">
+                            What is a NOUN? <span class="telugu-text text-orange-600">(నామవాచకము అంటే ఏమిటి?)</span>
+                        </h2>
+                        <p class="text-base sm:text-lg text-slate-700 mb-3 leading-relaxed">
+                            <strong>In English:</strong> A <strong>Noun</strong> is a naming word! Everything around us has a name. It is the name of a <strong>Person</strong> (మనిషి), <strong>Place</strong> (ప్రదేశం), <strong>Animal/Bird</strong> (జంతువు/పక్షి), <strong>Thing</strong> (వస్తువు), or <strong>Feeling/Idea</strong> (భావన/గుణము).
+                        </p>
+                        <p class="text-base sm:text-lg text-slate-800 bg-amber-50 p-3.5 rounded-2xl border border-amber-200 telugu-text font-medium">
+                            <strong>తెలుగులో వివరణ:</strong> ఏదైనా ఒక <strong>వ్యక్తి (Person)</strong>, <strong>ప్రదేశం (Place)</strong>, <strong>జంతువు (Animal)</strong>, <strong>వస్తువు (Thing)</strong> లేదా <strong>గుణము/భావన (Idea/Feeling)</strong> యొక్క పేరును తెలియజేసే పదాలను <strong>'నామవాచకము' (Noun)</strong> అంటారు. సింపుల్‌గా చెప్పాలంటే <em>"పేర్లను తెలిపే ప్రతి పదమూ నామవాచకమే!"</em>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick 4 Pillars of Nouns -->
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-6 pt-6 border-t border-amber-100 text-center">
+                    <div class="bg-orange-50 p-3 rounded-2xl border border-orange-200">
+                        <div class="text-2xl mb-1">👦👩‍⚕️</div>
+                        <div class="font-bold text-orange-800 text-sm">Person (వ్యక్తి)</div>
+                        <div class="text-xs text-slate-600">Ravi, Doctor, Girl</div>
+                        <div class="text-xs telugu-text text-orange-700">రవి, డాక్టర్, అమ్మాయి</div>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-2xl border border-blue-200">
+                        <div class="text-2xl mb-1">🏫🏞️</div>
+                        <div class="font-bold text-blue-800 text-sm">Place (ప్రదేశం)</div>
+                        <div class="text-xs text-slate-600">School, India, Park</div>
+                        <div class="text-xs telugu-text text-blue-700">పాఠశాల, ఇండియా, పార్క్</div>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-2xl border border-green-200">
+                        <div class="text-2xl mb-1">🐶🐘</div>
+                        <div class="font-bold text-green-800 text-sm">Animal (జంతువు)</div>
+                        <div class="text-xs text-slate-600">Dog, Elephant, Cow</div>
+                        <div class="text-xs telugu-text text-green-700">కుక్క, ఏనుగు, ఆవు</div>
+                    </div>
+                    <div class="bg-pink-50 p-3 rounded-2xl border border-pink-200">
+                        <div class="text-2xl mb-1">📚⚽</div>
+                        <div class="font-bold text-pink-800 text-sm">Thing (వస్తువు)</div>
+                        <div class="text-xs text-slate-600">Book, Ball, Pen</div>
+                        <div class="text-xs telugu-text text-pink-700">పుస్తకం, బంతి, కలం</div>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-2xl border border-purple-200 col-span-2 sm:col-span-1">
+                        <div class="text-2xl mb-1">❤️😊</div>
+                        <div class="font-bold text-purple-800 text-sm">Idea (భావన/గుణం)</div>
+                        <div class="text-xs text-slate-600">Love, Joy, Bravery</div>
+                        <div class="text-xs telugu-text text-purple-700">ప్రేమ, ఆనందం, ధైర్యం</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-types of Nouns Heading -->
+            <div class="text-center">
+                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">
+                    🌟 5 Main Types of Nouns <span class="telugu-text text-amber-600">(నామవాచకములోని 5 ముఖ్య రకాలు)</span>
+                </h3>
+                <p class="text-slate-600 mt-1">Click the speaker icon 🔊 on any card to hear the words!</p>
+            </div>
+
+            <!-- 5 Main Types Grid + Countable/Uncountable -->
+            <div id="noun-types-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- CTA to 20 Noun Examples -->
+            <div class="bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-6 text-white text-center shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                    <h4 class="text-xl sm:text-2xl font-bold">Ready to see 20 easy Noun sentences? 🍎</h4>
+                    <p class="telugu-text text-amber-100">ఇంగ్లీష్ మరియు తెలుగులో 20 సులభమైన నామవాచక ఉదాహరణలు చూడండి!</p>
+                </div>
+                <button onclick="switchTab('nouns-examples')" class="bg-white text-orange-600 hover:bg-amber-50 px-6 py-3 rounded-2xl font-bold shadow-md shrink-0 transition-transform active:scale-95">
+                    See 20 Noun Examples <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: 20 NOUN EXAMPLES ================= -->
+        <section id="section-nouns-examples" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 shadow-lg border-4 border-amber-300">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-amber-600">
+                            🍎 20 Basic Noun Examples <span class="telugu-text text-orange-600">(20 నామవాచక ఉదాహరణలు)</span>
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base mt-1">
+                            Notice how the <span class="hl-noun">Highlighted Words</span> are names of persons, places, animals, things, or feelings!
+                        </p>
+                    </div>
+                    <!-- Filter by Noun Type -->
+                    <div class="flex flex-wrap gap-2">
+                        <select id="noun-filter" onchange="renderNounExamples()" class="bg-amber-50 border-2 border-amber-300 text-amber-900 rounded-xl px-4 py-2.5 font-bold focus:outline-none focus:ring-2 focus:ring-amber-400">
+                            <option value="ALL">All 20 Examples (అన్నీ)</option>
+                            <option value="Proper Noun">Proper Noun (సంజ్ఞా)</option>
+                            <option value="Common Noun">Common Noun (జాతి)</option>
+                            <option value="Collective Noun">Collective Noun (సమూహ)</option>
+                            <option value="Material Noun">Material Noun (పదార్థ)</option>
+                            <option value="Abstract Noun">Abstract Noun (గుణ)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20 Noun Examples Cards Grid -->
+            <div id="noun-examples-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Populated via JS -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: PRONOUNS & THEIR PARTS ================= -->
+        <section id="section-pronouns-theory" class="hidden space-y-8">
+            <!-- Main Definition Hero Card -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border-4 border-purple-400 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-purple-100 border-4 border-purple-300 flex items-center justify-center text-5xl sm:text-6xl shrink-0 shadow-inner">
+                        🦸‍♀️
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-bold mb-2">
+                            Part of Speech #2 • భాషాభాగము #2
+                        </div>
+                        <h2 class="text-2xl sm:text-4xl font-bold text-purple-700 mb-2">
+                            What is a PRONOUN? <span class="telugu-text text-pink-600">(సర్వనామము అంటే ఏమిటి?)</span>
+                        </h2>
+                        <p class="text-base sm:text-lg text-slate-700 mb-3 leading-relaxed">
+                            <strong>In English:</strong> A <strong>Pronoun</strong> is a smart helper word used <strong>instead of a Noun</strong>! Instead of repeating a name like "Raju" again and again, we use words like <strong>He, She, It, I, We, You, They</strong>.
+                        </p>
+                        <p class="text-base sm:text-lg text-slate-800 bg-purple-50 p-3.5 rounded-2xl border border-purple-200 telugu-text font-medium">
+                            <strong>తెలుగులో వివరణ:</strong> <strong>నామవాచకానికి (పేరుకు) బదులుగా</strong> వాడే పదాలను <strong>'సర్వనామము' (Pronoun)</strong> అంటారు. ఒకే పేరును మాటిమాటికీ చెప్పకుండా <strong>నేను (I), మేము (We), నీవు (You), అతడు (He), ఆమె (She), అది (It), వారు (They)</strong> వంటి పదాలను వాడతాము.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Why Do We Need Pronouns Mini Comic Strip -->
+                <div class="mt-6 pt-6 border-t border-purple-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-red-50 p-4 rounded-2xl border-2 border-red-200">
+                        <div class="font-bold text-red-700 mb-1">❌ Without Pronoun (సర్వనామం లేకపోతే):</div>
+                        <p class="text-sm sm:text-base text-slate-700">
+                            "<strong>Sita</strong> is a good girl. <strong>Sita</strong> goes to school. Everybody likes <strong>Sita</strong>." (Sounds repetitive!)
+                        </p>
+                        <p class="text-xs sm:text-sm telugu-text text-red-700 mt-1">
+                            "<strong>సీత</strong> మంచి అమ్మాయి. <strong>సీత</strong> బడికి వెళ్తుంది. అందరికీ <strong>సీత</strong> అంటే ఇష్టం." (మాటిమాటికీ పేరు చెప్పాలి)
+                        </p>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-2xl border-2 border-emerald-300">
+                        <div class="font-bold text-emerald-800 mb-1">✅ With Pronoun (సర్వనామంతో):</div>
+                        <p class="text-sm sm:text-base text-slate-700">
+                            "<strong>Sita</strong> is a good girl. <span class="hl-pronoun">She</span> goes to school. Everybody likes <span class="hl-pronoun">her</span>." (Smooth & Natural!)
+                        </p>
+                        <p class="text-xs sm:text-sm telugu-text text-emerald-800 mt-1">
+                            "<strong>సీత</strong> మంచి అమ్మాయి. <span class="hl-pronoun">ఆమె (She)</span> బడికి వెళ్తుంది. అందరికీ <span class="hl-pronoun">ఆమె (her)</span> అంటే ఇష్టం."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-types of Pronouns Heading -->
+            <div class="text-center">
+                <h3 class="text-2xl sm:text-3xl font-bold text-slate-800">
+                    🌟 7 Important Types of Pronouns <span class="telugu-text text-purple-600">(సర్వనామములోని 7 ముఖ్య రకాలు)</span>
+                </h3>
+                <p class="text-slate-600 mt-1">Learn each type in English and Telugu with clear examples!</p>
+            </div>
+
+            <!-- 7 Main Pronoun Types Grid -->
+            <div id="pronoun-types-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Helpful Kid's Pronoun Cheat-Sheet Table -->
+            <div class="bg-white rounded-3xl p-6 shadow-lg border-2 border-purple-200 overflow-x-auto">
+                <h4 class="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+                    <span>📊 Quick Pronoun Magic Table for Kids</span>
+                    <span class="telugu-text text-base text-pink-600">(ముఖ్యమైన సర్వనామ పట్టిక)</span>
+                </h4>
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="bg-purple-100 text-purple-900">
+                            <th class="p-3 rounded-tl-xl">Subject (కర్త)</th>
+                            <th class="p-3">Object (కర్మ)</th>
+                            <th class="p-3">Possessive (యాజమాన్య)</th>
+                            <th class="p-3 rounded-tr-xl">Reflexive (ఆత్మార్థక)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-purple-100 text-sm sm:text-base">
+                        <tr class="hover:bg-purple-50/50">
+                            <td class="p-3 font-bold text-purple-700">I <span class="telugu-text font-normal text-slate-600">(నేను)</span></td>
+                            <td class="p-3">Me <span class="telugu-text text-slate-600">(నన్ను / నాకు)</span></td>
+                            <td class="p-3">My / Mine <span class="telugu-text text-slate-600">(నా / నాది)</span></td>
+                            <td class="p-3">Myself <span class="telugu-text text-slate-600">(నేనే స్వయంగా)</span></td>
+                        </tr>
+                        <tr class="hover:bg-purple-50/50">
+                            <td class="p-3 font-bold text-purple-700">We <span class="telugu-text font-normal text-slate-600">(మేము / మనము)</span></td>
+                            <td class="p-3">Us <span class="telugu-text text-slate-600">(మమ్మల్ని / మాకు)</span></td>
+                            <td class="p-3">Our / Ours <span class="telugu-text text-slate-600">(మా / మాది)</span></td>
+                            <td class="p-3">Ourselves <span class="telugu-text text-slate-600">(మేమే స్వయంగా)</span></td>
+                        </tr>
+                        <tr class="hover:bg-purple-50/50">
+                            <td class="p-3 font-bold text-purple-700">You <span class="telugu-text font-normal text-slate-600">(నీవు / మీరు)</span></td>
+                            <td class="p-3">You <span class="telugu-text text-slate-600">(నిన్ను / మిమ్మల్ని)</span></td>
+                            <td class="p-3">Your / Yours <span class="telugu-text text-slate-600">(నీ / మీది)</span></td>
+                            <td class="p-3">Yourself / Yourselves <span class="telugu-text text-slate-600">(నీవే / మీరే)</span></td>
+                        </tr>
+                        <tr class="hover:bg-purple-50/50">
+                            <td class="p-3 font-bold text-purple-700">He <span class="telugu-text font-normal text-slate-600">(అతడు)</span></td>
+                            <td class="p-3">Him <span class="telugu-text text-slate-600">(అతడిని / అతడికి)</span></td>
+                            <td class="p-3">His <span class="telugu-text text-slate-600">(అతడి / అతడిది)</span></td>
+                            <td class="p-3">Himself <span class="telugu-text text-slate-600">(అతడే స్వయంగా)</span></td>
+                        </tr>
+                        <tr class="hover:bg-purple-50/50">
+                            <td class="p-3 font-bold text-purple-700">She <span class="telugu-text font-normal text-slate-600">(ఆమె)</span></td>
+                            <td class="p-3">Her <span class="telugu-text text-slate-600">(ఆమెను / ఆమెకు)</span></td>
+                            <td class="p-3">Her / Hers <span class="telugu-text text-slate-600">(ఆమె / ఆమెది)</span></td>
+                            <td class="p-3">Herself <span class="telugu-text text-slate-600">(ఆమె స్వయంగా)</span></td>
+                        </tr>
+                        <tr class="hover:bg-purple-50/50">
+                            <td class="p-3 font-bold text-purple-700">It <span class="telugu-text font-normal text-slate-600">(అది / ఇది)</span></td>
+                            <td class="p-3">It <span class="telugu-text text-slate-600">(దానిని / దానికి)</span></td>
+                            <td class="p-3">Its <span class="telugu-text text-slate-600">(దాని యొక్క)</span></td>
+                            <td class="p-3">Itself <span class="telugu-text text-slate-600">(అదే స్వయంగా)</span></td>
+                        </tr>
+                        <tr class="hover:bg-purple-50/50">
+                            <td class="p-3 font-bold text-purple-700">They <span class="telugu-text font-normal text-slate-600">(వారు / అవి)</span></td>
+                            <td class="p-3">Them <span class="telugu-text text-slate-600">(వారిని / వారికి)</span></td>
+                            <td class="p-3">Their / Theirs <span class="telugu-text text-slate-600">(వారి / వారిది)</span></td>
+                            <td class="p-3">Themselves <span class="telugu-text text-slate-600">(వారే స్వయంగా)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA to 20 Pronoun Examples -->
+            <div class="bg-gradient-to-r from-purple-600 to-pink-500 rounded-3xl p-6 text-white text-center shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                    <h4 class="text-xl sm:text-2xl font-bold">Ready to explore 20 easy Pronoun sentences? 💬</h4>
+                    <p class="telugu-text text-purple-100">ఇంగ్లీష్ మరియు తెలుగులో 20 సులభమైన సర్వనామ ఉదాహరణలు చూడండి!</p>
+                </div>
+                <button onclick="switchTab('pronouns-examples')" class="bg-white text-purple-700 hover:bg-purple-50 px-6 py-3 rounded-2xl font-bold shadow-md shrink-0 transition-transform active:scale-95">
+                    See 20 Pronoun Examples <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 4: 20 PRONOUN EXAMPLES ================= -->
+        <section id="section-pronouns-examples" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 shadow-lg border-4 border-purple-300">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-purple-700">
+                            💬 20 Basic Pronoun Examples <span class="telugu-text text-pink-600">(20 సర్వనామ ఉదాహరణలు)</span>
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base mt-1">
+                            Notice how the <span class="hl-pronoun">Highlighted Words</span> take the place of Nouns!
+                        </p>
+                    </div>
+                    <!-- Filter by Pronoun Type -->
+                    <div class="flex flex-wrap gap-2">
+                        <select id="pronoun-filter" onchange="renderPronounExamples()" class="bg-purple-50 border-2 border-purple-300 text-purple-900 rounded-xl px-4 py-2.5 font-bold focus:outline-none focus:ring-2 focus:ring-purple-400">
+                            <option value="ALL">All 20 Examples (అన్నీ)</option>
+                            <option value="Personal Pronoun">Personal (పురుష)</option>
+                            <option value="Possessive Pronoun">Possessive (యాజమాన్య)</option>
+                            <option value="Reflexive Pronoun">Reflexive (ఆత్మార్థక)</option>
+                            <option value="Demonstrative Pronoun">Demonstrative (నిర్దేశక)</option>
+                            <option value="Interrogative Pronoun">Interrogative (ప్రశ్నార్థక)</option>
+                            <option value="Relative Pronoun">Relative (సంబంధ)</option>
+                            <option value="Indefinite Pronoun">Indefinite (అనిశ్చిత)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20 Pronoun Examples Cards Grid -->
+            <div id="pronoun-examples-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Populated via JS -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION 5: INTERACTIVE KIDS QUIZ ================= -->
+        <section id="section-quiz-zone" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border-4 border-emerald-400 max-w-3xl mx-auto">
+                <div class="flex items-center justify-between border-b-2 border-emerald-100 pb-4 mb-6">
+                    <div>
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Bilingual Grammar Game</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-emerald-700 mt-1">
+                            🏆 Noun & Pronoun Super Quiz!
+                        </h2>
+                        <p class="telugu-text text-slate-600 text-sm">వాక్యంలోని పదం Noun (నామవాచకమా) లేక Pronoun (సర్వనామమా) గుర్తించండి!</p>
+                    </div>
+                    <div class="text-center bg-amber-100 px-4 py-2 rounded-2xl border-2 border-amber-300">
+                        <div class="text-xs font-bold text-amber-800">SCORE</div>
+                        <div id="quiz-score" class="text-2xl font-extrabold text-amber-600">0 / 10</div>
+                    </div>
+                </div>
+
+                <!-- Quiz Question Container -->
+                <div id="quiz-box" class="space-y-6">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Audio Status Toast -->
+    <div id="tts-toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-2.5 opacity-0 pointer-events-none transition-opacity duration-300 z-50">
+        <i class="fa-solid fa-volume-high text-amber-400 animate-pulse"></i>
+        <span id="tts-toast-text" class="text-sm font-medium">Speaking...</span>
+    </div>
+
+    <script>
+        // =========================================================================
+        // 1. DATA: NOUN TYPES (5 Core Types + Countable/Uncountable Bonus)
+        // =========================================================================
+        const nounTypesData = [
+            {
+                id: 1,
+                titleEn: "1. Proper Noun",
+                titleTe: "సంజ్ఞా నామవాచకము",
+                icon: "👑",
+                color: "from-amber-400 to-orange-500",
+                bgLight: "bg-amber-50",
+                border: "border-amber-300",
+                descEn: "The special, specific name of a particular person, place, river, festival, or country. It ALWAYS starts with a Capital Letter!",
+                descTe: "నిర్దిష్టంగా ఒక ప్రత్యేక వ్యక్తి, ఊరు, దేశం, నది లేదా పండుగ పేరును తెలియజేసే దానిని 'సంజ్ఞా నామవాచకము' అంటారు. ఇది ఎప్పుడూ పెద్ద అక్షరంతో (Capital Letter) మొదలవుతుంది.",
+                examplesEn: "Ravi, Sita, Hyderabad, India, Ganga, Sunday, Diwali",
+                examplesTe: "రవి, సీత, హైదరాబాద్, ఇండియా, గంగా నది, ఆదివారం, దీపావళి"
+            },
+            {
+                id: 2,
+                titleEn: "2. Common Noun",
+                titleTe: "జాతి నామవాచకము",
+                icon: "🏫",
+                color: "from-blue-400 to-indigo-500",
+                bgLight: "bg-blue-50",
+                border: "border-blue-300",
+                descEn: "A general name given in common to every person, place, animal, or thing of the same kind or class.",
+                descTe: "ఒకే జాతికి చెందిన వ్యక్తులు, జంతువులు, ప్రదేశాలు లేదా వస్తువులన్నింటికీ సాధారణంగా పెట్టే పేరును 'జాతి నామవాచకము' అంటారు.",
+                examplesEn: "Boy, Girl, City, School, Dog, Book, Teacher, River",
+                examplesTe: "అబ్బాయి, అమ్మాయి, నగరం, పాఠశాల, కుక్క, పుస్తకం, ఉపాధ్యాయుడు"
+            },
+            {
+                id: 3,
+                titleEn: "3. Collective Noun",
+                titleTe: "సమూహ నామవాచకము",
+                icon: "👨‍👩‍👧‍👦",
+                color: "from-emerald-400 to-teal-500",
+                bgLight: "bg-emerald-50",
+                border: "border-emerald-300",
+                descEn: "The name given to a group or collection of persons, animals, or things taken together and spoken of as one whole.",
+                descTe: "మనుషులు, జంతువులు లేదా వస్తువుల యొక్క గుంపును (సమూహాన్ని) ఒకే యూనిట్‌గా పిలిచే పేరును 'సమూహ నామవాచకము' అంటారు.",
+                examplesEn: "Team (players), Class (students), Flock (birds), Bunch (keys), Family",
+                examplesTe: "జట్టు (Team), తరగతి (Class), మంద (Flock), గుత్తి (Bunch), కుటుంబం (Family)"
+            },
+            {
+                id: 4,
+                titleEn: "4. Material Noun",
+                titleTe: "పదార్థ నామవాచకము",
+                icon: "🥛",
+                color: "from-pink-400 to-rose-500",
+                bgLight: "bg-pink-50",
+                border: "border-pink-300",
+                descEn: "The name of a raw material, metal, liquid, or substance from which things are made (we usually measure or weigh them).",
+                descTe: "ఇతర వస్తువులను తయారు చేయడానికి ఉపయోగించే ముడి పదార్థాలు, లోహాలు లేదా ద్రవాల పేర్లను 'పదార్థ నామవాచకము' అంటారు.",
+                examplesEn: "Water, Milk, Gold, Silver, Wood, Cotton, Rice, Iron",
+                examplesTe: "నీరు, పాలు, బంగారం, వెండి, కలప (చెక్క), పత్తి, బియ్యం, ఇనుము"
+            },
+            {
+                id: 5,
+                titleEn: "5. Abstract Noun",
+                titleTe: "గుణ / భావ నామవాచకము",
+                icon: "💖",
+                color: "from-purple-400 to-violet-600",
+                bgLight: "bg-purple-50",
+                border: "border-purple-300",
+                descEn: "The name of a feeling, quality, action, or state which we CANNOT see or touch, we can only feel or think of it!",
+                descTe: "మనం కంటితో చూడలేని, చేతితో తాకలేని, కేవలం మనసుతో మాత్రమే అనుభూతి చెందగల గుణాలు, భావాలు లేదా స్థితుల పేర్లను 'గుణ నామవాచకము' అంటారు.",
+                examplesEn: "Honesty, Love, Happiness, Bravery, Truth, Childhood, Wisdom",
+                examplesTe: "నిజాయితీ, ప్రేమ, ఆనందం, ధైర్యం, నిజం (సత్యం), బాల్యం, జ్ఞానం"
+            },
+            {
+                id: 6,
+                titleEn: "Bonus: Countable & Uncountable",
+                titleTe: "లెక్కించదగిన & లెక్కించలేనివి",
+                icon: "🔢",
+                color: "from-cyan-400 to-sky-500",
+                bgLight: "bg-cyan-50",
+                border: "border-cyan-300",
+                descEn: "Countable Nouns can be counted (1 apple, 2 apples). Uncountable Nouns cannot be counted individually (water, sugar, milk).",
+                descTe: "1, 2, 3 అని లెక్కపెట్టగలిగేవి Countable (యాపిల్స్, పెన్నులు). లెక్కపెట్టలేనివి Uncountable (నీరు, పాలు, చక్కెర, గాలి).",
+                examplesEn: "Countable: Pen, Car, Star | Uncountable: Water, Sugar, Air",
+                examplesTe: "లెక్కించదగినవి: కలం, కారు | లెక్కించలేనివి: నీరు, చక్కెర, గాలి"
+            }
+        ];
+
+        // =========================================================================
+        // 2. DATA: 20 BASIC NOUN EXAMPLES (English + Telugu + Highlight + Type)
+        // =========================================================================
+        const nounExamplesData = [
+            {
+                num: 1,
+                emoji: "👦",
+                enHtml: "<span class='hl-noun'>Ravi</span> is a good <span class='hl-noun'>boy</span>.",
+                enPlain: "Ravi is a good boy.",
+                teHtml: "<span class='hl-noun'>రవి</span> ఒక మంచి <span class='hl-noun'>అబ్బాయి</span>.",
+                nouns: "Ravi (రవి), boy (అబ్బాయి)",
+                type: "Proper Noun",
+                note: "Ravi = Proper Noun (ప్రత్యేక పేరు), boy = Common Noun (జాతి పేరు)"
+            },
+            {
+                num: 2,
+                emoji: "🇮🇳",
+                enHtml: "<span class='hl-noun'>India</span> is our great <span class='hl-noun'>country</span>.",
+                enPlain: "India is our great country.",
+                teHtml: "<span class='hl-noun'>భారతదేశం (India)</span> మన గొప్ప <span class='hl-noun'>దేశం</span>.",
+                nouns: "India (భారతదేశం), country (దేశం)",
+                type: "Proper Noun",
+                note: "India = Proper Noun, country = Common Noun"
+            },
+            {
+                num: 3,
+                emoji: "🕌",
+                enHtml: "We visited <span class='hl-noun'>Hyderabad</span> on <span class='hl-noun'>Sunday</span>.",
+                enPlain: "We visited Hyderabad on Sunday.",
+                teHtml: "మేము <span class='hl-noun'>ఆదివారం</span> నాడు <span class='hl-noun'>హైదరాబాద్</span> వెళ్ళాము.",
+                nouns: "Hyderabad (హైదరాబాద్), Sunday (ఆదివారం)",
+                type: "Proper Noun",
+                note: "Specific city and day names are Proper Nouns (సంజ్ఞా నామవాచకాలు)"
+            },
+            {
+                num: 4,
+                emoji: "🌊",
+                enHtml: "The <span class='hl-noun'>Ganga</span> is a holy <span class='hl-noun'>river</span>.",
+                enPlain: "The Ganga is a holy river.",
+                teHtml: "<span class='hl-noun'>గంగ</span> ఒక పవిత్రమైన <span class='hl-noun'>నది</span>.",
+                nouns: "Ganga (గంగ), river (నది)",
+                type: "Proper Noun",
+                note: "Ganga = Proper Noun, river = Common Noun"
+            },
+            {
+                num: 5,
+                emoji: "🐶",
+                enHtml: "The <span class='hl-noun'>dog</span> is barking at the <span class='hl-noun'>gate</span>.",
+                enPlain: "The dog is barking at the gate.",
+                teHtml: "<span class='hl-noun'>కుక్క</span> ఆ <span class='hl-noun'>గేటు</span> వద్ద మొరుగుతోంది.",
+                nouns: "dog (కుక్క), gate (గేటు)",
+                type: "Common Noun",
+                note: "Animal and thing names are Common Nouns (జాతి నామవాచకాలు)"
+            },
+            {
+                num: 6,
+                emoji: "🍎",
+                enHtml: "I eat a sweet <span class='hl-noun'>apple</span> every <span class='hl-noun'>day</span>.",
+                enPlain: "I eat a sweet apple every day.",
+                teHtml: "నేను ప్రతి <span class='hl-noun'>రోజు</span> ఒక తీయని <span class='hl-noun'>ఆపిల్ పండు</span> తింటాను.",
+                nouns: "apple (ఆపిల్), day (రోజు)",
+                type: "Common Noun",
+                note: "Fruit name is a Common Noun"
+            },
+            {
+                num: 7,
+                emoji: "👩‍🏫",
+                enHtml: "Our <span class='hl-noun'>teacher</span> writes on the <span class='hl-noun'>blackboard</span>.",
+                enPlain: "Our teacher writes on the blackboard.",
+                teHtml: "మా <span class='hl-noun'>ఉపాధ్యాయురాలు</span> <span class='hl-noun'>నల్లబల్ల</span> మీద రాస్తారు.",
+                nouns: "teacher (ఉపాధ్యాయురాలు), blackboard (నల్లబల్ల)",
+                type: "Common Noun",
+                note: "Person and classroom object names are Common Nouns"
+            },
+            {
+                num: 8,
+                emoji: "🐦",
+                enHtml: "The <span class='hl-noun'>birds</span> build <span class='hl-noun'>nests</span> in the <span class='hl-noun'>trees</span>.",
+                enPlain: "The birds build nests in the trees.",
+                teHtml: "<span class='hl-noun'>పక్షులు</span> <span class='hl-noun'>చెట్ల</span>పై <span class='hl-noun'>గూళ్ళు</span> కట్టుకుంటాయి.",
+                nouns: "birds (పక్షులు), nests (గూళ్ళు), trees (చెట్లు)",
+                type: "Common Noun",
+                note: "Plural Common Nouns (బహువచన జాతి నామవాచకాలు)"
+            },
+            {
+                num: 9,
+                emoji: "📖",
+                enHtml: "This <span class='hl-noun'>book</span> is on the <span class='hl-noun'>table</span>.",
+                enPlain: "This book is on the table.",
+                teHtml: "ఈ <span class='hl-noun'>పుస్తకం</span> <span class='hl-noun'>బల్ల (టేబుల్)</span> మీద ఉంది.",
+                nouns: "book (పుస్తకం), table (బల్ల)",
+                type: "Common Noun",
+                note: "Everyday things around us are Common Nouns"
+            },
+            {
+                num: 10,
+                emoji: "🐄",
+                enHtml: "The <span class='hl-noun'>cow</span> gives us fresh <span class='hl-noun'>milk</span>.",
+                enPlain: "The cow gives us fresh milk.",
+                teHtml: "<span class='hl-noun'>ఆవు</span> మనకు తాజా <span class='hl-noun'>పాలు</span> ఇస్తుంది.",
+                nouns: "cow (ఆవు), milk (పాలు)",
+                type: "Common Noun",
+                note: "cow = Common Noun, milk = Material Noun"
+            },
+            {
+                num: 11,
+                emoji: "🏏",
+                enHtml: "Our cricket <span class='hl-noun'>team</span> won the <span class='hl-noun'>match</span>.",
+                enPlain: "Our cricket team won the match.",
+                teHtml: "మా క్రికెట్ <span class='hl-noun'>జట్టు (Team)</span> <span class='hl-noun'>మ్యాచ్</span> గెలిచింది.",
+                nouns: "team (జట్టు), match (మ్యాచ్)",
+                type: "Collective Noun",
+                note: "Team = group of players (సమూహ నామవాచకము)"
+            },
+            {
+                num: 12,
+                emoji: "🍇",
+                enHtml: "There is a <span class='hl-noun'>bunch</span> of <span class='hl-noun'>grapes</span> in the <span class='hl-noun'>basket</span>.",
+                enPlain: "There is a bunch of grapes in the basket.",
+                teHtml: "<span class='hl-noun'>బుట్ట</span>లో <span class='hl-noun'>ద్రాక్ష పండ్ల</span> <span class='hl-noun'>గుత్తి (Bunch)</span> ఉంది.",
+                nouns: "bunch (గుత్తి), grapes (ద్రాక్ష), basket (బుట్ట)",
+                type: "Collective Noun",
+                note: "Bunch = a collection of grapes/keys together"
+            },
+            {
+                num: 13,
+                emoji: "🐑",
+                enHtml: "A <span class='hl-noun'>flock</span> of <span class='hl-noun'>sheep</span> is grazing in the <span class='hl-noun'>field</span>.",
+                enPlain: "A flock of sheep is grazing in the field.",
+                teHtml: "పొలంలో ఒక <span class='hl-noun'>గొర్రెల</span> <span class='hl-noun'>మంద (Flock)</span> మేస్తోంది.",
+                nouns: "flock (మంద), sheep (గొర్రెలు), field (పొలం)",
+                type: "Collective Noun",
+                note: "Flock = group of sheep or birds (మంద)"
+            },
+            {
+                num: 14,
+                emoji: "🎓",
+                enHtml: "The whole <span class='hl-noun'>class</span> is sitting quietly.",
+                enPlain: "The whole class is sitting quietly.",
+                teHtml: "<span class='hl-noun'>తరగతి (Class)</span> అంతా నిశ్శబ్దంగా కూర్చుంది.",
+                nouns: "class (తరగతి - విద్యార్థుల సమూహం)",
+                type: "Collective Noun",
+                note: "Class = group of students together"
+            },
+            {
+                num: 15,
+                emoji: "💍",
+                enHtml: "This <span class='hl-noun'>ring</span> is made of pure <span class='hl-noun'>gold</span>.",
+                enPlain: "This ring is made of pure gold.",
+                teHtml: "ఈ <span class='hl-noun'>ఉంగరం</span> స్వచ్ఛమైన <span class='hl-noun'>బంగారం (Gold)</span>తో తయారైంది.",
+                nouns: "ring (ఉంగరం), gold (బంగారం)",
+                type: "Material Noun",
+                note: "Gold = Material Noun (పదార్థ నామవాచకము)"
+            },
+            {
+                num: 16,
+                emoji: "💧",
+                enHtml: "Clean <span class='hl-noun'>water</span> is essential for <span class='hl-noun'>life</span>.",
+                enPlain: "Clean water is essential for life.",
+                teHtml: "<span class='hl-noun'>జీవితానికి</span> స్వచ్ఛమైన <span class='hl-noun'>నీరు (Water)</span> చాలా అవసరం.",
+                nouns: "water (నీరు), life (జీవితం)",
+                type: "Material Noun",
+                note: "Water = Material Noun (ద్రవ పదార్థం)"
+            },
+            {
+                num: 17,
+                emoji: "🪑",
+                enHtml: "This <span class='hl-noun'>chair</span> is made of strong <span class='hl-noun'>wood</span>.",
+                enPlain: "This chair is made of strong wood.",
+                teHtml: "ఈ <span class='hl-noun'>కుర్చీ</span> గట్టి <span class='hl-noun'>కలప (చెక్క)</span>తో తయారైంది.",
+                nouns: "chair (కుర్చీ), wood (కలప/చెక్క)",
+                type: "Material Noun",
+                note: "Wood = Material Noun used to make furniture"
+            },
+            {
+                num: 18,
+                emoji: "🤝",
+                enHtml: "<span class='hl-noun'>Honesty</span> is the best <span class='hl-noun'>policy</span>.",
+                enPlain: "Honesty is the best policy.",
+                teHtml: "<span class='hl-noun'>నిజాయితీ (Honesty)</span> అత్యుత్తమ <span class='hl-noun'>విధానం</span>.",
+                nouns: "Honesty (నిజాయితీ), policy (విధానం)",
+                type: "Abstract Noun",
+                note: "Honesty is a quality we cannot touch (గుణ నామవాచకము)"
+            },
+            {
+                num: 19,
+                emoji: "🦁",
+                enHtml: "The <span class='hl-noun'>soldier</span> received a <span class='hl-noun'>medal</span> for his <span class='hl-noun'>bravery</span>.",
+                enPlain: "The soldier received a medal for his bravery.",
+                teHtml: "ఆ <span class='hl-noun'>సైనికుడికి</span> తన <span class='hl-noun'>ధైర్యానికి (Bravery)</span> <span class='hl-noun'>పతకం</span> లభించింది.",
+                nouns: "soldier (సైనికుడు), medal (పతకం), bravery (ధైర్యం)",
+                type: "Abstract Noun",
+                note: "Bravery = Abstract Noun (ధైర్యం అనే గుణము)"
+            },
+            {
+                num: 20,
+                emoji: "😊",
+                enHtml: "<span class='hl-noun'>Children</span> bring great <span class='hl-noun'>happiness</span> to the <span class='hl-noun'>home</span>.",
+                enPlain: "Children bring great happiness to the home.",
+                teHtml: "<span class='hl-noun'>పిల్లలు</span> <span class='hl-noun'>ఇంటికి</span> ఎంతో <span class='hl-noun'>ఆనందాన్ని (Happiness)</span> తెస్తారు.",
+                nouns: "Children (పిల్లలు), happiness (ఆనందం), home (ఇల్లు)",
+                type: "Abstract Noun",
+                note: "Happiness = feeling/emotion (భావ నామవాచకము)"
+            }
+        ];
+
+        // =========================================================================
+        // 3. DATA: PRONOUN TYPES (7 Core Sub-Types)
+        // =========================================================================
+        const pronounTypesData = [
+            {
+                id: 1,
+                titleEn: "1. Personal Pronouns",
+                titleTe: "పురుష సర్వనామములు",
+                icon: "🙋‍♂️",
+                color: "from-purple-500 to-indigo-600",
+                bgLight: "bg-purple-50",
+                border: "border-purple-300",
+                descEn: "Words used directly for people, animals, or things. Includes 1st Person (Speaker: I, We), 2nd Person (Listener: You), and 3rd Person (He, She, It, They).",
+                descTe: "మనుషులు, జంతువులు లేదా వస్తువుల పేర్లకు బదులుగా నేరుగా వాడే పదాలు. ఇందులో ఉత్తమ పురుష (I, We), మధ్యమ పురుష (You), ప్రథమ పురుష (He, She, It, They) ఉంటాయి.",
+                examplesEn: "I, We, You, He, She, It, They, Me, Us, Him, Her, Them",
+                examplesTe: "నేను (I), మేము (We), నీవు/మీరు (You), అతడు (He), ఆమె (She), అది (It), వారు (They)"
+            },
+            {
+                id: 2,
+                titleEn: "2. Possessive Pronouns",
+                titleTe: "యాజమాన్య సర్వనామములు",
+                icon: "🎁",
+                color: "from-pink-500 to-rose-500",
+                bgLight: "bg-pink-50",
+                border: "border-pink-300",
+                descEn: "Words that show ownership or who something belongs to ('Whose is it?').",
+                descTe: "ఒక వస్తువు ఎవరికి చెందినదో (యాజమాన్యాన్ని / హక్కును) తెలియజేసే సర్వనామ పదాలు.",
+                examplesEn: "Mine, Ours, Yours, His, Hers, Theirs (My, Our, Your, Her, Their)",
+                examplesTe: "నాది (Mine), మాది (Ours), నీది/మీది (Yours), అతడిది (His), ఆమెది (Hers), వారిది (Theirs)"
+            },
+            {
+                id: 3,
+                titleEn: "3. Reflexive Pronouns",
+                titleTe: "ఆత్మార్థక సర్వనామములు",
+                icon: "🪞",
+                color: "from-amber-500 to-orange-500",
+                bgLight: "bg-amber-50",
+                border: "border-amber-300",
+                descEn: "Words ending in '-self' or '-selves' used when the action done by the subject turns back upon the subject (doing something on one's own).",
+                descTe: "కర్త చేసే పని తిరిగి కర్త మీదే పడినప్పుడు లేదా 'తానే స్వయంగా చేశాను' అని చెప్పేటప్పుడు వీటిని వాడతారు (-self / -selves తో ముగుస్తాయి).",
+                examplesEn: "Myself, Yourself, Himself, Herself, Itself, Ourselves, Themselves",
+                examplesTe: "నేనే స్వయంగా (Myself), అతడే స్వయంగా (Himself), ఆమె స్వయంగా (Herself), వారే స్వయంగా (Themselves)"
+            },
+            {
+                id: 4,
+                titleEn: "4. Demonstrative Pronouns",
+                titleTe: "నిర్దేశాత్మక సర్వనామములు",
+                icon: "👉",
+                color: "from-emerald-500 to-teal-600",
+                bgLight: "bg-emerald-50",
+                border: "border-emerald-300",
+                descEn: "Words used to point out specific things or people near or far from us.",
+                descTe: "దగ్గరగా లేదా దూరంగా ఉన్న వస్తువులను లేదా వ్యక్తులను వేలు పెట్టి చూపిస్తూ నిర్దేశించి చెప్పే పదాలు.",
+                examplesEn: "This (near-1), That (far-1), These (near-many), Those (far-many)",
+                examplesTe: "ఇది (This - దగ్గర ఒకటి), అది (That - దూరం ఒకటి), ఇవి (These - దగ్గర కొన్ని), అవి (Those - దూరం కొన్ని)"
+            },
+            {
+                id: 5,
+                titleEn: "5. Interrogative Pronouns",
+                titleTe: "ప్రశ్నార్థక సర్వనామములు",
+                icon: "❓",
+                color: "from-blue-500 to-cyan-600",
+                bgLight: "bg-blue-50",
+                border: "border-blue-300",
+                descEn: "Pronouns used to ask questions about people or things!",
+                descTe: "వ్యక్తులు లేదా వస్తువుల గురించి ప్రశ్నలు అడగడానికి ఉపయోగించే సర్వనామ పదాలు.",
+                examplesEn: "Who, Whom, Whose, What, Which",
+                examplesTe: "ఎవరు (Who), ఎవరిని (Whom), ఎవరిది (Whose), ఏమిటి (What), ఏది (Which)"
+            },
+            {
+                id: 6,
+                titleEn: "6. Relative Pronouns",
+                titleTe: "సంబంధ సర్వనామములు",
+                icon: "🔗",
+                color: "from-violet-500 to-purple-600",
+                bgLight: "bg-violet-50",
+                border: "border-violet-300",
+                descEn: "Words that join two sentences together and relate back to a Noun mentioned just before them.",
+                descTe: "ముందు చెప్పబడిన నామవాచకానికి సంబంధాన్ని తెలుపుతూ, రెండు వాక్యాలను కలపడానికి ఉపయోగించే పదాలు.",
+                examplesEn: "Who, Whom, Whose, Which, That",
+                examplesTe: "ఎవరైతే (Who), ఏదైతే (Which / That), ఎవరిదైతే (Whose)"
+            },
+            {
+                id: 7,
+                titleEn: "7. Indefinite Pronouns",
+                titleTe: "అనిశ్చిత సర్వనామములు",
+                icon: "👥",
+                color: "from-fuchsia-500 to-pink-600",
+                bgLight: "bg-fuchsia-50",
+                border: "border-fuchsia-300",
+                descEn: "Words that refer to people or things in a general way without saying exactly who or what they are.",
+                descTe: "నిర్దిష్టంగా ఫలానా వ్యక్తి లేదా వస్తువు అని కాకుండా, సాధారణంగా ఎవరో ఒకరు లేదా అందరూ అని తెలిపే పదాలు.",
+                examplesEn: "Someone, Everybody, Nobody, Anything, All, Some, Many, Few",
+                examplesTe: "ఎవరో ఒకరు (Someone), అందరూ (Everybody/All), ఎవరూ కాదు (Nobody), ఏదైనా (Anything), కొందరు (Some)"
+            }
+        ];
+
+        // =========================================================================
+        // 4. DATA: 20 BASIC PRONOUN EXAMPLES (English + Telugu + Highlight + Type)
+        // =========================================================================
+        const pronounExamplesData = [
+            {
+                num: 1,
+                emoji: "🎒",
+                enHtml: "<span class='hl-pronoun'>I</span> am a good student.",
+                enPlain: "I am a good student.",
+                teHtml: "<span class='hl-pronoun'>నేను (I)</span> ఒక మంచి విద్యార్థిని.",
+                pronouns: "I (నేను)",
+                type: "Personal Pronoun",
+                note: "1st Person Singular Subject Pronoun (ఉత్తమ పురుష ఏకవచనం)"
+            },
+            {
+                num: 2,
+                emoji: "⚽",
+                enHtml: "Raju is my friend. <span class='hl-pronoun'>He</span> plays football.",
+                enPlain: "Raju is my friend. He plays football.",
+                teHtml: "రాజు నా స్నేహితుడు. <span class='hl-pronoun'>అతడు (He)</span> ఫుట్‌బాల్ ఆడతాడు.",
+                pronouns: "He (అతడు), my (నా)",
+                type: "Personal Pronoun",
+                note: "'He' is used instead of repeating the noun 'Raju'"
+            },
+            {
+                num: 3,
+                emoji: "🎤",
+                enHtml: "Rani is my sister. <span class='hl-pronoun'>She</span> sings very well.",
+                enPlain: "Rani is my sister. She sings very well.",
+                teHtml: "రాణి నా సోదరి. <span class='hl-pronoun'>ఆమె (She)</span> చాలా బాగా పాడుతుంది.",
+                pronouns: "She (ఆమె), my (నా)",
+                type: "Personal Pronoun",
+                note: "'She' replaces the girl's name 'Rani'"
+            },
+            {
+                num: 4,
+                emoji: "🐕",
+                enHtml: "This is a little puppy. <span class='hl-pronoun'>It</span> is very cute.",
+                enPlain: "This is a little puppy. It is very cute.",
+                teHtml: "ఇది ఒక చిన్న కుక్కపిల్ల. <span class='hl-pronoun'>అది (It)</span> చాలా ముద్దుగా ఉంది.",
+                pronouns: "It (అది), This (ఇది)",
+                type: "Personal Pronoun",
+                note: "'It' is used for animals, birds, and non-living things"
+            },
+            {
+                num: 5,
+                emoji: "🏫",
+                enHtml: "<span class='hl-pronoun'>We</span> go to school together every day.",
+                enPlain: "We go to school together every day.",
+                teHtml: "<span class='hl-pronoun'>మేము (We)</span> ప్రతిరోజూ కలిసే బడికి వెళ్తాము.",
+                pronouns: "We (మేము / మనము)",
+                type: "Personal Pronoun",
+                note: "1st Person Plural Pronoun (ఉత్తమ పురుష బహువచనం)"
+            },
+            {
+                num: 6,
+                emoji: "🌳",
+                enHtml: "The children are in the park. <span class='hl-pronoun'>They</span> are playing happily.",
+                enPlain: "The children are in the park. They are playing happily.",
+                teHtml: "పిల్లలు పార్కులో ఉన్నారు. <span class='hl-pronoun'>వారు (They)</span> సంతోషంగా ఆడుకుంటున్నారు.",
+                pronouns: "They (వారు)",
+                type: "Personal Pronoun",
+                note: "'They' replaces the plural noun 'The children'"
+            },
+            {
+                num: 7,
+                emoji: "🌟",
+                enHtml: "<span class='hl-pronoun'>You</span> are a very smart child.",
+                enPlain: "You are a very smart child.",
+                teHtml: "<span class='hl-pronoun'>నీవు (You)</span> చాలా తెలివైన పిల్లవాడివి.",
+                pronouns: "You (నీవు / మీరు)",
+                type: "Personal Pronoun",
+                note: "2nd Person Pronoun for the listener (మధ్యమ పురుష)"
+            },
+            {
+                num: 8,
+                emoji: "🍫",
+                enHtml: "Mother gave <span class='hl-pronoun'>me</span> a sweet chocolate.",
+                enPlain: "Mother gave me a sweet chocolate.",
+                teHtml: "అమ్మ <span class='hl-pronoun'>నాకు (me)</span> ఒక తీయని చాక్లెట్ ఇచ్చింది.",
+                pronouns: "me (నాకు / నన్ను)",
+                type: "Personal Pronoun",
+                note: "Object Pronoun form of 'I'"
+            },
+            {
+                num: 9,
+                emoji: "📚",
+                enHtml: "Our teacher told <span class='hl-pronoun'>us</span> a funny story.",
+                enPlain: "Our teacher told us a funny story.",
+                teHtml: "మా టీచర్ <span class='hl-pronoun'>మాకు (us)</span> ఒక సరదా కథ చెప్పారు.",
+                pronouns: "us (మాకు / మమ్మల్ని), Our (మా)",
+                type: "Personal Pronoun",
+                note: "Object Pronoun form of 'We'"
+            },
+            {
+                num: 10,
+                emoji: "📘",
+                enHtml: "This story book is <span class='hl-pronoun'>mine</span>.",
+                enPlain: "This story book is mine.",
+                teHtml: "ఈ కథల పుస్తకం <span class='hl-pronoun'>నాది (mine)</span>.",
+                pronouns: "mine (నాది)",
+                type: "Possessive Pronoun",
+                note: "Shows ownership (యాజమాన్య సర్వనామము)"
+            },
+            {
+                num: 11,
+                emoji: "✏️",
+                enHtml: "Is this blue pen <span class='hl-pronoun'>yours</span> or <span class='hl-pronoun'>hers</span>?",
+                enPlain: "Is this blue pen yours or hers?",
+                teHtml: "ఈ నీలం రంగు కలం <span class='hl-pronoun'>నీదా (yours)</span> లేక <span class='hl-pronoun'>ఆమెదా (hers)</span>?",
+                pronouns: "yours (నీది/మీది), hers (ఆమెది)",
+                type: "Possessive Pronoun",
+                note: "Possessive Pronouns showing who owns the pen"
+            },
+            {
+                num: 12,
+                emoji: "🏡",
+                enHtml: "That big house is <span class='hl-pronoun'>theirs</span>.",
+                enPlain: "That big house is theirs.",
+                teHtml: "ఆ పెద్ద ఇల్లు <span class='hl-pronoun'>వారిది (theirs)</span>.",
+                pronouns: "theirs (వారిది)",
+                type: "Possessive Pronoun",
+                note: "Shows the house belongs to them"
+            },
+            {
+                num: 13,
+                emoji: "📝",
+                enHtml: "<span class='hl-pronoun'>I</span> completed the homework <span class='hl-pronoun'>myself</span>.",
+                enPlain: "I completed the homework myself.",
+                teHtml: "<span class='hl-pronoun'>నేను</span> హోంవర్క్ <span class='hl-pronoun'>నా అంతట నేనే (myself)</span> పూర్తి చేశాను.",
+                pronouns: "I (నేను), myself (నేనే స్వయంగా)",
+                type: "Reflexive Pronoun",
+                note: "Reflexive Pronoun (-self) showing self-action (ఆత్మార్థక సర్వనామము)"
+            },
+            {
+                num: 14,
+                emoji: "🎂",
+                enHtml: "<span class='hl-pronoun'>She</span> baked a delicious cake <span class='hl-pronoun'>herself</span>.",
+                enPlain: "She baked a delicious cake herself.",
+                teHtml: "<span class='hl-pronoun'>ఆమె</span> <span class='hl-pronoun'>స్వయంగా తానే (herself)</span> రుచికరమైన కేక్ తయారు చేసింది.",
+                pronouns: "She (ఆమె), herself (ఆమె స్వయంగా)",
+                type: "Reflexive Pronoun",
+                note: "Action reflects back to 'She'"
+            },
+            {
+                num: 15,
+                emoji: "🎁",
+                enHtml: "<span class='hl-pronoun'>This</span> is my new toy and <span class='hl-pronoun'>that</span> is your bag.",
+                enPlain: "This is my new toy and that is your bag.",
+                teHtml: "<span class='hl-pronoun'>ఇది (This)</span> నా కొత్త బొమ్మ మరియు <span class='hl-pronoun'>అది (that)</span> నీ బ్యాగు.",
+                pronouns: "This (ఇది), that (అది)",
+                type: "Demonstrative Pronoun",
+                note: "Points out near (This) and far (That) objects"
+            },
+            {
+                num: 16,
+                emoji: "🥭",
+                enHtml: "<span class='hl-pronoun'>These</span> are sweet mangoes and <span class='hl-pronoun'>those</span> are sour grapes.",
+                enPlain: "These are sweet mangoes and those are sour grapes.",
+                teHtml: "<span class='hl-pronoun'>ఇవి (These)</span> తీయని మామిడి పండ్లు మరియు <span class='hl-pronoun'>అవి (those)</span> పుల్లని ద్రాక్ష పండ్లు.",
+                pronouns: "These (ఇవి), those (అవి)",
+                type: "Demonstrative Pronoun",
+                note: "Plural Demonstrative Pronouns (నిర్దేశాత్మక సర్వనామములు)"
+            },
+            {
+                num: 17,
+                emoji: "🚪",
+                enHtml: "<span class='hl-pronoun'>Who</span> is knocking at the door?",
+                enPlain: "Who is knocking at the door?",
+                teHtml: "తలుపు తడుతున్నది <span class='hl-pronoun'>ఎవరు (Who)</span>?",
+                pronouns: "Who (ఎవరు)",
+                type: "Interrogative Pronoun",
+                note: "Used to ask a question about a person (ప్రశ్నార్థక సర్వనామము)"
+            },
+            {
+                num: 18,
+                emoji: "🤔",
+                enHtml: "<span class='hl-pronoun'>What</span> is your favourite game?",
+                enPlain: "What is your favourite game?",
+                teHtml: "నీకు ఇష్టమైన ఆట <span class='hl-pronoun'>ఏమిటి (What)</span>?",
+                pronouns: "What (ఏమిటి)",
+                type: "Interrogative Pronoun",
+                note: "Used to ask a question about a thing"
+            },
+            {
+                num: 19,
+                emoji: "🏅",
+                enHtml: "The boy <span class='hl-pronoun'>who</span> won the race is my brother.",
+                enPlain: "The boy who won the race is my brother.",
+                teHtml: "పరుగు పందెంలో గెలిచిన అబ్బాయి (<span class='hl-pronoun'>ఎవరైతే - who</span> గెలిచాడో అతడు) నా తమ్ముడు.",
+                pronouns: "who (ఎవరైతే)",
+                type: "Relative Pronoun",
+                note: "Connects 'The boy' to 'won the race' (సంబంధ సర్వనామము)"
+            },
+            {
+                num: 20,
+                emoji: "🎉",
+                enHtml: "<span class='hl-pronoun'>Everybody</span> loves a kind and honest person.",
+                enPlain: "Everybody loves a kind and honest person.",
+                teHtml: "దయ మరియు నిజాయితీ గల వ్యక్తిని <span class='hl-pronoun'>అందరూ (Everybody)</span> ఇష్టపడతారు.",
+                pronouns: "Everybody (అందరూ / ప్రతి ఒక్కరూ)",
+                type: "Indefinite Pronoun",
+                note: "Refers to people in general (అనిశ్చిత సర్వనామము)"
+            }
+        ];
+
+        // =========================================================================
+        // 5. DATA: INTERACTIVE KIDS QUIZ (10 Bilingual Questions)
+        // =========================================================================
+        const quizQuestions = [
+            {
+                qEn: "Identify the highlighted word: '<span class=\"underline decoration-amber-500 font-bold\">Hyderabad</span> is a big city.'",
+                qTe: "ఈ వాక్యంలో 'Hyderabad' (హైదరాబాద్) అనే పదం ఏమిటి?",
+                options: [
+                    { text: "Proper Noun (సంజ్ఞా నామవాచకము)", correct: true },
+                    { text: "Personal Pronoun (పురుష సర్వనామము)", correct: false },
+                    { text: "Abstract Noun (గుణ నామవాచకము)", correct: false }
+                ],
+                explanation: "Hyderabad is the special name of a specific city, so it is a Proper Noun (సంజ్ఞా నామవాచకము)!"
+            },
+            {
+                qEn: "Identify the highlighted word: 'Rani is happy because <span class=\"underline decoration-purple-500 font-bold\">she</span> got a prize.'",
+                qTe: "ఈ వాక్యంలో 'she' (ఆమె) అనే పదం ఏమిటి?",
+                options: [
+                    { text: "Common Noun (జాతి నామవాచకము)", correct: false },
+                    { text: "Personal Pronoun (పురుష సర్వనామము)", correct: true },
+                    { text: "Material Noun (పదార్థ నామవాచకము)", correct: false }
+                ],
+                explanation: "'She' (ఆమె) is used in place of the noun 'Rani', so it is a Personal Pronoun (పురుష సర్వనామము)!"
+            },
+            {
+                qEn: "Which type of Noun is '<span class=\"underline decoration-amber-500 font-bold\">Honesty</span>' (నిజాయితీ)?",
+                qTe: "'Honesty' (నిజాయితీ) అనేది ఏ రకమైన నామవాచకము?",
+                options: [
+                    { text: "Material Noun (పదార్థ నామవాచకము)", correct: false },
+                    { text: "Collective Noun (సమూహ నామవాచకము)", correct: false },
+                    { text: "Abstract Noun (గుణ / భావ నామవాచకము)", correct: true }
+                ],
+                explanation: "We cannot touch or see Honesty; we can only feel or know it. So it is an Abstract Noun (గుణ నామవాచకము)!"
+            },
+            {
+                qEn: "Identify the highlighted word: 'A <span class=\"underline decoration-amber-500 font-bold\">flock</span> of birds is flying in the sky.'",
+                qTe: "పక్షుల 'మంద' (flock) అనేది ఏ రకమైన నామవాచకము?",
+                options: [
+                    { text: "Collective Noun (సమూహ నామవాచకము)", correct: true },
+                    { text: "Reflexive Pronoun (ఆత్మార్థక సర్వనామము)", correct: false },
+                    { text: "Proper Noun (సంజ్ఞా నామవాచకము)", correct: false }
+                ],
+                explanation: "'Flock' (మంద) names a group/collection of birds together, so it is a Collective Noun (సమూహ నామవాచకము)!"
+            },
+            {
+                qEn: "Identify the highlighted word: 'This story book is <span class=\"underline decoration-purple-500 font-bold\">mine</span>.'",
+                qTe: "'ఈ కథల పుస్తకం నాది (mine)' లో 'mine' ఏ రకమైన సర్వనామము?",
+                options: [
+                    { text: "Interrogative Pronoun (ప్రశ్నార్థక సర్వనామము)", correct: false },
+                    { text: "Possessive Pronoun (యాజమాన్య సర్వనామము)", correct: true },
+                    { text: "Common Noun (జాతి నామవాచకము)", correct: false }
+                ],
+                explanation: "'Mine' (నాది) shows ownership/possession, so it is a Possessive Pronoun (యాజమాన్య సర్వనామము)!"
+            },
+            {
+                qEn: "Identify the highlighted word: 'I did the homework <span class=\"underline decoration-purple-500 font-bold\">myself</span>.'",
+                qTe: "'నేనే స్వయంగా (myself) హోంవర్క్ చేశాను' లో 'myself' ఏమిటి?",
+                options: [
+                    { text: "Reflexive Pronoun (ఆత్మార్థక సర్వనామము)", correct: true },
+                    { text: "Demonstrative Pronoun (నిర్దేశాత్మక సర్వనామము)", correct: false },
+                    { text: "Proper Noun (సంజ్ఞా నామవాచకము)", correct: false }
+                ],
+                explanation: "Words ending in -self/-selves like 'myself' are Reflexive Pronouns (ఆత్మార్థక సర్వనామములు)!"
+            },
+            {
+                qEn: "Identify the highlighted word: 'This ring is made of <span class=\"underline decoration-amber-500 font-bold\">gold</span>.'",
+                qTe: "'Gold' (బంగారం) అనేది ఏ రకమైన నామవాచకము?",
+                options: [
+                    { text: "Material Noun (పదార్థ నామవాచకము)", correct: true },
+                    { text: "Abstract Noun (గుణ నామవాచకము)", correct: false },
+                    { text: "Relative Pronoun (సంబంధ సర్వనామము)", correct: false }
+                ],
+                explanation: "Gold, silver, water, milk, and wood are substances/materials, so they are Material Nouns (పదార్థ నామవాచకములు)!"
+            },
+            {
+                qEn: "Identify the highlighted word: '<span class=\"underline decoration-purple-500 font-bold\">Who</span> is knocking at the door?'",
+                qTe: "ప్రశ్న అడగడానికి వాడే 'Who' (ఎవరు) అనేది ఏ సర్వనామము?",
+                options: [
+                    { text: "Interrogative Pronoun (ప్రశ్నార్థక సర్వనామము)", correct: true },
+                    { text: "Possessive Pronoun (యాజమాన్య సర్వనామము)", correct: false },
+                    { text: "Collective Noun (సమూహ నామవాచకము)", correct: false }
+                ],
+                explanation: "'Who, What, Which, Whose' when used to ask questions are Interrogative Pronouns (ప్రశ్నార్థక సర్వనామములు)!"
+            },
+            {
+                qEn: "Identify the highlighted words: '<span class=\"underline decoration-purple-500 font-bold\">These</span> are sweet mangoes.'",
+                qTe: "వస్తువులను చూపిస్తూ చెప్పే 'This, That, These, Those' ఏ రకమైన సర్వనామములు?",
+                options: [
+                    { text: "Demonstrative Pronoun (నిర్దేశాత్మక సర్వనామము)", correct: true },
+                    { text: "Common Noun (జాతి నామవాచకము)", correct: false },
+                    { text: "Abstract Noun (గుణ నామవాచకము)", correct: false }
+                ],
+                explanation: "'This, That, These, Those' point out specific things, so they are Demonstrative Pronouns (నిర్దేశాత్మక సర్వనామములు)!"
+            },
+            {
+                qEn: "Which word replaces the Noun 'The children' in: 'The children are in the park. <span class=\"underline decoration-purple-500 font-bold\">They</span> are playing.'?",
+                qTe: "'పిల్లలు (The children)' అనే నామవాచకానికి బదులుగా వాడిన సర్వనామం ఏది?",
+                options: [
+                    { text: "They (వారు)", correct: true },
+                    { text: "Park (పార్కు)", correct: false },
+                    { text: "Playing (ఆడుకుంటున్నారు)", correct: false }
+                ],
+                explanation: "'They' (వారు) is the Pronoun used instead of repeating 'The children'!"
+            }
+        ];
+
+        // =========================================================================
+        // 6. RENDER FUNCTIONS
+        // =========================================================================
+
+        function renderNounTypes() {
+            const container = document.getElementById('noun-types-container');
+            container.innerHTML = nounTypesData.map(item => `
+                <div class="card-bounce bg-white rounded-3xl p-6 shadow-md border-2 ${item.border} flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-4xl bg-slate-100 w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner">${item.icon}</span>
+                            <button onclick="speakText('${item.titleEn}. ${item.examplesEn.replace(/'/g, '')}')" class="w-10 h-10 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-700 flex items-center justify-center transition-colors" title="Listen in English">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800">${item.titleEn}</h4>
+                        <div class="text-base font-bold text-amber-700 telugu-text mb-3">${item.titleTe}</div>
+                        <p class="text-sm text-slate-600 mb-3 leading-relaxed">${item.descEn}</p>
+                        <p class="text-sm text-slate-800 ${item.bgLight} p-3 rounded-2xl border ${item.border} telugu-text mb-4">${item.descTe}</p>
+                    </div>
+                    <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-xs sm:text-sm space-y-1">
+                        <div><strong class="text-slate-700">Examples:</strong> <span class="text-amber-700 font-bold">${item.examplesEn}</span></div>
+                        <div class="telugu-text"><strong class="text-slate-700">ఉదాహరణలు:</strong> <span class="text-orange-700 font-semibold">${item.examplesTe}</span></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderNounExamples() {
+            const filterValue = document.getElementById('noun-filter').value;
+            const grid = document.getElementById('noun-examples-grid');
+            const filtered = filterValue === 'ALL'
+                ? nounExamplesData
+                : nounExamplesData.filter(d => d.type === filterValue);
+
+            grid.innerHTML = filtered.map(item => `
+                <div class="card-bounce bg-white rounded-3xl p-5 shadow-md border-2 border-amber-200 flex flex-col justify-between gap-3">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-2xl bg-amber-500 text-white font-bold flex items-center justify-center shrink-0 shadow">
+                                #${item.num}
+                            </span>
+                            <span class="text-3xl">${item.emoji}</span>
+                            <span class="text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full border border-amber-300">
+                                ${item.type}
+                            </span>
+                        </div>
+                        <button onclick="speakText('${item.enPlain.replace(/'/g, "\\'")}')" class="w-10 h-10 rounded-full bg-amber-50 hover:bg-amber-200 text-amber-700 flex items-center justify-center shrink-0 transition-colors" title="Speak Sentence">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+
+                    <div class="space-y-2 my-1">
+                        <div class="text-lg sm:text-xl font-semibold text-slate-800 leading-snug">
+                            ${item.enHtml}
+                        </div>
+                        <div class="text-base sm:text-lg text-slate-800 telugu-text bg-amber-50/70 p-3 rounded-2xl border border-amber-100">
+                            ${item.teHtml}
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-slate-600">
+                        <div><strong class="text-amber-800">🏷️ Nouns:</strong> ${item.nouns}</div>
+                        <div class="telugu-text text-slate-500">${item.note}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPronounTypes() {
+            const container = document.getElementById('pronoun-types-container');
+            container.innerHTML = pronounTypesData.map(item => `
+                <div class="card-bounce bg-white rounded-3xl p-6 shadow-md border-2 ${item.border} flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-4xl bg-slate-100 w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner">${item.icon}</span>
+                            <button onclick="speakText('${item.titleEn}. ${item.examplesEn.replace(/'/g, '')}')" class="w-10 h-10 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-700 flex items-center justify-center transition-colors" title="Listen in English">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800">${item.titleEn}</h4>
+                        <div class="text-base font-bold text-purple-700 telugu-text mb-3">${item.titleTe}</div>
+                        <p class="text-sm text-slate-600 mb-3 leading-relaxed">${item.descEn}</p>
+                        <p class="text-sm text-slate-800 ${item.bgLight} p-3 rounded-2xl border ${item.border} telugu-text mb-4">${item.descTe}</p>
+                    </div>
+                    <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-xs sm:text-sm space-y-1">
+                        <div><strong class="text-slate-700">Examples:</strong> <span class="text-purple-700 font-bold">${item.examplesEn}</span></div>
+                        <div class="telugu-text"><strong class="text-slate-700">ఉదాహరణలు:</strong> <span class="text-pink-700 font-semibold">${item.examplesTe}</span></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPronounExamples() {
+            const filterValue = document.getElementById('pronoun-filter').value;
+            const grid = document.getElementById('pronoun-examples-grid');
+            const filtered = filterValue === 'ALL'
+                ? pronounExamplesData
+                : pronounExamplesData.filter(d => d.type === filterValue);
+
+            grid.innerHTML = filtered.map(item => `
+                <div class="card-bounce bg-white rounded-3xl p-5 shadow-md border-2 border-purple-200 flex flex-col justify-between gap-3">
+                    <div class="flex items-start justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-2xl bg-purple-600 text-white font-bold flex items-center justify-center shrink-0 shadow">
+                                #${item.num}
+                            </span>
+                            <span class="text-3xl">${item.emoji}</span>
+                            <span class="text-xs font-bold bg-purple-100 text-purple-800 px-3 py-1 rounded-full border border-purple-300">
+                                ${item.type}
+                            </span>
+                        </div>
+                        <button onclick="speakText('${item.enPlain.replace(/'/g, "\\'")}')" class="w-10 h-10 rounded-full bg-purple-50 hover:bg-purple-200 text-purple-700 flex items-center justify-center shrink-0 transition-colors" title="Speak Sentence">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+
+                    <div class="space-y-2 my-1">
+                        <div class="text-lg sm:text-xl font-semibold text-slate-800 leading-snug">
+                            ${item.enHtml}
+                        </div>
+                        <div class="text-base sm:text-lg text-slate-800 telugu-text bg-purple-50/70 p-3 rounded-2xl border border-purple-100">
+                            ${item.teHtml}
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-slate-600">
+                        <div><strong class="text-purple-800">🦸 Pronoun:</strong> ${item.pronouns}</div>
+                        <div class="telugu-text text-slate-500">${item.note}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // =========================================================================
+        // 7. QUIZ ENGINE
+        // =========================================================================
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let quizAnswered = false;
+
+        function renderQuiz() {
+            const box = document.getElementById('quiz-box');
+            document.getElementById('quiz-score').textContent = `${currentQuizScore} / ${quizQuestions.length}`;
+
+            if (currentQuizIndex >= quizQuestions.length) {
+                box.innerHTML = `
+                    <div class="text-center py-8 space-y-4">
+                        <div class="text-6xl">🎉🏅🎈</div>
+                        <h3 class="text-3xl font-bold text-emerald-700">Awesome Job, Grammar Champion!</h3>
+                        <p class="telugu-text text-lg text-slate-700">శభాష్! మీరు క్విజ్ పూర్తి చేశారు. మీ స్కోరు: <strong>${currentQuizScore} / ${quizQuestions.length}</strong></p>
+                        <button onclick="restartQuiz()" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-3.5 rounded-2xl shadow-lg transition-transform active:scale-95">
+                            Play Again (మళ్ళీ ఆడండి) 🔄
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            const q = quizQuestions[currentQuizIndex];
+            box.innerHTML = `
+                <div class="bg-emerald-50 p-5 rounded-2xl border-2 border-emerald-200">
+                    <div class="text-xs font-bold text-emerald-700 uppercase mb-1">Question ${currentQuizIndex + 1} of ${quizQuestions.length}</div>
+                    <div class="text-lg sm:text-xl font-semibold text-slate-800 mb-2">${q.qEn}</div>
+                    <div class="text-base text-emerald-900 telugu-text font-medium">${q.qTe}</div>
+                </div>
+
+                <div class="space-y-3" id="quiz-options">
+                    ${q.options.map((opt, idx) => `
+                        <button onclick="selectQuizOption(${idx})" id="quiz-opt-${idx}" class="w-full text-left p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-400 bg-white hover:bg-emerald-50/40 font-bold text-slate-700 transition-all flex items-center justify-between">
+                            <span class="telugu-text">${opt.text}</span>
+                            <span class="w-7 h-7 rounded-full border-2 border-slate-300 flex items-center justify-center text-xs">➜</span>
+                        </button>
+                    `).join('')}
+                </div>
+
+                <div id="quiz-feedback" class="hidden p-4 rounded-2xl text-sm sm:text-base"></div>
+
+                <div class="flex justify-end">
+                    <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-2xl shadow-md">
+                        Next Question (తరువాతి ప్రశ్న) <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            `;
+        }
+
+        function selectQuizOption(selectedIndex) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+
+            const q = quizQuestions[currentQuizIndex];
+            const isCorrect = q.options[selectedIndex].correct;
+            if (isCorrect) currentQuizScore++;
+
+            document.getElementById('quiz-score').textContent = `${currentQuizScore} / ${quizQuestions.length}`;
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.getElementById(`quiz-opt-${idx}`);
+                if (opt.correct) {
+                    btn.className = "w-full text-left p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-100 font-bold text-emerald-900 flex items-center justify-between";
+                } else if (idx === selectedIndex && !opt.correct) {
+                    btn.className = "w-full text-left p-4 rounded-2xl border-2 border-red-400 bg-red-100 font-bold text-red-900 flex items-center justify-between";
+                } else {
+                    btn.className = "w-full text-left p-4 rounded-2xl border-2 border-slate-200 bg-slate-50 opacity-60 font-bold text-slate-500 flex items-center justify-between";
+                }
+            });
+
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedback.className = "p-4 rounded-2xl bg-emerald-100 border-2 border-emerald-300 text-emerald-900 telugu-text font-medium";
+                feedback.innerHTML = `✅ <strong>Super! Correct Answer! (సరైన సమాధానం!)</strong><br>${q.explanation}`;
+            } else {
+                feedback.className = "p-4 rounded-2xl bg-amber-100 border-2 border-amber-300 text-amber-900 telugu-text font-medium";
+                feedback.innerHTML = `💡 <strong>Good try! Learn this:</strong><br>${q.explanation}`;
+            }
+
+            document.getElementById('quiz-next-btn').classList.remove('hidden');
+        }
+
+        function nextQuizQuestion() {
+            currentQuizIndex++;
+            quizAnswered = false;
+            renderQuiz();
+        }
+
+        function restartQuiz() {
+            currentQuizIndex = 0;
+            currentQuizScore = 0;
+            quizAnswered = false;
+            renderQuiz();
+        }
+
+        // =========================================================================
+        // 8. TAB NAVIGATION & TEXT-TO-SPEECH (TTS)
+        // =========================================================================
+        const tabs = ['nouns-theory', 'nouns-examples', 'pronouns-theory', 'pronouns-examples', 'quiz-zone'];
+
+        const activeStyles = {
+            'nouns-theory': 'bg-gradient-to-br from-amber-400 to-orange-500 text-white border-transparent tab-active',
+            'nouns-examples': 'bg-gradient-to-br from-amber-500 to-orange-600 text-white border-transparent tab-active',
+            'pronouns-theory': 'bg-gradient-to-br from-purple-500 to-indigo-600 text-white border-transparent tab-active',
+            'pronouns-examples': 'bg-gradient-to-br from-pink-500 to-purple-600 text-white border-transparent tab-active',
+            'quiz-zone': 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-transparent tab-active'
+        };
+
+        const inactiveStyles = {
+            'nouns-theory': 'bg-white hover:bg-amber-50 text-amber-700 border-2 border-amber-300',
+            'nouns-examples': 'bg-white hover:bg-amber-50 text-amber-700 border-2 border-amber-300',
+            'pronouns-theory': 'bg-white hover:bg-purple-50 text-purple-700 border-2 border-purple-300',
+            'pronouns-examples': 'bg-white hover:bg-pink-50 text-pink-700 border-2 border-pink-300',
+            'quiz-zone': 'bg-white hover:bg-emerald-50 text-emerald-700 border-2 border-emerald-300'
+        };
+
+        function switchTab(selectedTab) {
+            tabs.forEach(tab => {
+                const section = document.getElementById(`section-${tab}`);
+                const btn = document.getElementById(`tab-${tab}`);
+                const extraColSpan = tab === 'quiz-zone' ? 'col-span-2 sm:col-span-1 ' : '';
+
+                if (tab === selectedTab) {
+                    section.classList.remove('hidden');
+                    btn.className = `nav-btn ${extraColSpan}flex flex-col items-center justify-center p-3.5 rounded-2xl font-bold transition-all ${activeStyles[tab]}`;
+                } else {
+                    section.classList.add('hidden');
+                    btn.className = `nav-btn ${extraColSpan}flex flex-col items-center justify-center p-3.5 rounded-2xl font-bold shadow-sm transition-all ${inactiveStyles[tab]}`;
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-IN';
+            utterance.rate = 0.9;
+            utterance.pitch = 1.05;
+
+            const toast = document.getElementById('tts-toast');
+            const toastText = document.getElementById('tts-toast-text');
+            toastText.textContent = `🔊 "${text}"`;
+            toast.classList.remove('opacity-0');
+
+            utterance.onend = () => {
+                toast.classList.add('opacity-0');
+            };
+            utterance.onerror = () => {
+                toast.classList.add('opacity-0');
+            };
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Initialize all views on page load
+        window.onload = function () {
+            renderNounTypes();
+            renderNounExamples();
+            renderPronounTypes();
+            renderPronounExamples();
+            renderQuiz();
+        };
+    </script>
+</body>
+</html>
